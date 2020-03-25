@@ -1,0 +1,119 @@
+﻿  Source.cpp
+D:\c++\Tetris\Tetris\Source.cpp(13,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\c++\Tetris\Tetris\Source.cpp(39,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\c++\Tetris\Tetris\Source.cpp(60,38): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(60,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(83,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(83,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(107,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(107,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(123,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(123,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(148,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(148,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(176,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(176,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(201,33): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(226,34): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(251,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(251,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(283,34): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(310,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(310,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(335,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(335,30): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(363,39): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+D:\c++\Tetris\Tetris\Source.cpp(368,47): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  Tetris.vcxproj -> D:\c++\Tetris\x64\Debug\Tetris.exe
