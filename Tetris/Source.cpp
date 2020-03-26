@@ -328,7 +328,7 @@ void sign_Y(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void sign_Z(RectangleShape id[5], int arr[10]) {
+void sign_Z(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 750) {
@@ -357,7 +357,6 @@ void sign_Z(RectangleShape id[5], int arr[10]) {
 	id[4].setFillColor(color);
 	id[4].setOutlineColor(Color::Black);
 	id[4].setOutlineThickness(1);
-	convector(id, arr);
 }
 
 
@@ -372,8 +371,9 @@ int main() {
 	for (int i = 0; i < 16; i++) {
 		Field[i] = new Color[16];
 	}
-	sign_Z(active_shape, active);
-
+	sign_W(active_shape);
+	convector(active_shape, active);
+	int iter = 1;
 
 	for (int i = 0; i < 16; i++) {
 		for (int j = 0; j < 16; j++) {
@@ -421,7 +421,6 @@ int main() {
 						ind = 1;
 					}
 					
-					cout << ind << endl;
 					if (ind == 0) {
 						for (int i = 0; i < 10; i += 2) {
 							Field[active[i]][active[i+1]] = Color::White;
@@ -450,7 +449,6 @@ int main() {
 						ind = 1;
 					}
 
-					cout << ind << endl;
 					if (ind == 0) {
 						for (int i = 0; i < 10; i += 2) {
 							Field[active[i]][active[i + 1]] = Color::White;
@@ -468,7 +466,33 @@ int main() {
 			}
 		}
 
+		
 		window.clear();
+
+		if (iter % 100 == 0) {
+			int max = -1;
+			int i_max = -1;
+			for (int i = 0; i < 10; i += 2) {
+				if (active[i+1] >= 15) {
+					max = active[i+1];
+					i_max = i;
+				}
+			}
+			if (max < 15) {
+				for (int i = 0; i < 10; i += 2) {
+					Field[active[i]][active[i + 1]] = Color::White;
+					active[i + 1] += 1;
+					Field[active[i]][active[i + 1]] = active_shape[0].getFillColor();
+					active_shape[i / 2].move(0, 50);
+				}
+			} else {
+
+			}
+			iter = 1;
+		}
+		else {
+			iter += 1;
+		}
 
 		for (int i = 0; i < 5; i++) {
 			window.draw(active_shape[i]);
@@ -479,8 +503,16 @@ int main() {
 		}
 
 		window.display();
+		sleep(milliseconds(10));
 	}
 	
+
+
+
+
+
+
+
 	for  (int i = 0; i < 16; i++)
 	{
 		delete[] Field[i];
