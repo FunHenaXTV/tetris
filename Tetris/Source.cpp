@@ -7,7 +7,9 @@
 using namespace sf;
 using namespace std;
 
-
+/*
+Global Functions
+*/
 
 Color create_random_color() {
 	srand(time(NULL));
@@ -48,15 +50,17 @@ int create_random_pos() {
 	return i;
 }
 
-void convector(RectangleShape id[5], int arr[10]) {
+/*
+SIZE = 5 Functions
+*/
+void size5_convector(RectangleShape id[5], int arr[10]) {
 	for (int i = 0; i < 10; i += 2) {
 		arr[i] = id[i / 2].getPosition().x / 50;
 		arr[i + 1] = id[i / 2].getPosition().y / 50;
 	}
 }
 
-
-void sign_L(RectangleShape id[5]) {
+void size5_sign_L(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 750) {
@@ -76,7 +80,7 @@ void sign_L(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void sign_F(RectangleShape id[5]) {
+void size5_sign_F(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos == 0) {
@@ -105,7 +109,7 @@ void sign_F(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void sign_I(RectangleShape id[5]) {
+void size5_sign_I(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 
@@ -119,7 +123,7 @@ void sign_I(RectangleShape id[5]) {
 
 }
 
-void sign_N(RectangleShape id[5]) {
+void size5_sign_N(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 750) {
@@ -144,7 +148,8 @@ void sign_N(RectangleShape id[5]) {
 	id[4].setOutlineColor(Color::Black);
 	id[4].setOutlineThickness(1);
 }
-void sign_P(RectangleShape id[5]) {
+
+void size5_sign_P(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos == 0) {
@@ -169,7 +174,8 @@ void sign_P(RectangleShape id[5]) {
 	id[4].setOutlineColor(Color::Black);
 	id[4].setOutlineThickness(1);
 }
-void sign_T(RectangleShape id[5]) {
+
+void size5_sign_T(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos == 0) {
@@ -197,7 +203,8 @@ void sign_T(RectangleShape id[5]) {
 	id[4].setOutlineColor(Color::Black);
 	id[4].setOutlineThickness(1);
 }
-void sign_U(RectangleShape id[5]) {
+
+void size5_sign_U(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 700) {
@@ -222,7 +229,8 @@ void sign_U(RectangleShape id[5]) {
 	id[4].setOutlineColor(Color::Black);
 	id[4].setOutlineThickness(1);
 }
-void sign_V(RectangleShape id[5]) {
+
+void size5_sign_V(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 700) {
@@ -247,7 +255,8 @@ void sign_V(RectangleShape id[5]) {
 	id[4].setOutlineColor(Color::Black);
 	id[4].setOutlineThickness(1);
 }
-void sign_W(RectangleShape id[5]) {
+
+void size5_sign_W(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 700) {
@@ -279,7 +288,7 @@ void sign_W(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void sign_X(RectangleShape id[5]) {
+void size5_sign_X(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 700) {
@@ -306,7 +315,7 @@ void sign_X(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void sign_Y(RectangleShape id[5]) {
+void size5_sign_Y(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 750) {
@@ -328,7 +337,7 @@ void sign_Y(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void sign_Z(RectangleShape id[5]) {
+void size5_sign_Z(RectangleShape id[5]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 750) {
@@ -359,7 +368,7 @@ void sign_Z(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void call_random_func(RectangleShape active_shape[5], int active[10]) {
+void call_random_func_size_5(RectangleShape active_shape[5], int active[10]) {
 	srand(time(NULL));
 	int i = rand() % 13;
 	for (int j = 0; j < rand() % 100; j++) {
@@ -368,69 +377,301 @@ void call_random_func(RectangleShape active_shape[5], int active[10]) {
 		}
 	}
 	if (i == 0) {
-		sign_F(active_shape);
-		convector(active_shape, active);
+		size5_sign_F(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 1) {
-		sign_I(active_shape);
-		convector(active_shape, active);
+		size5_sign_I(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 2) {
-		sign_L(active_shape);
-		convector(active_shape, active);
+		size5_sign_L(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 3) {
-		sign_N(active_shape);
-		convector(active_shape, active);
+		size5_sign_N(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 4) {
-		sign_U(active_shape);
-		convector(active_shape, active);
+		size5_sign_U(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 5) {
-		sign_V(active_shape);
-		convector(active_shape, active);
+		size5_sign_V(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 6) {
-		sign_W(active_shape);
-		convector(active_shape, active);
+		size5_sign_W(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 7) {
-		sign_W(active_shape);
-		convector(active_shape, active);
+		size5_sign_W(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 8) {
-		sign_X(active_shape);
-		convector(active_shape, active);
+		size5_sign_X(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 9) {
-		sign_Z(active_shape);
-		convector(active_shape, active);
+		size5_sign_Z(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 10) {
-		sign_Y(active_shape);
-		convector(active_shape, active);
+		size5_sign_Y(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 11) {
-		sign_T(active_shape);
-		convector(active_shape, active);
+		size5_sign_T(active_shape);
+		size5_convector(active_shape, active);
 	}
 	else if (i == 12) {
-		sign_P(active_shape);
-		convector(active_shape, active);
+		size5_sign_P(active_shape);
+		size5_convector(active_shape, active);
 	}
 
 }
 
 
 
+/*
+SIZE = 4 FUNCTIONS
+*/
+
+
+void size4_convector(RectangleShape id[4], int arr[8]) {
+	for (int i = 0; i < 8; i += 2) {
+		arr[i] = id[i / 2].getPosition().x / 50;
+		arr[i + 1] = id[i / 2].getPosition().y / 50;
+	}
+}
+
+
+void size4_sign_Z(RectangleShape id[4]) {
+	int pos = create_random_pos();
+	Color color = create_random_color();
+	if (pos >= 750) {
+		pos = 700;
+	}
+	else if (pos == 0) {
+		pos = 50;
+	}
+	for (int i = 0; i < 2; i++) {
+		id[i].setSize(Vector2f(50, 50));
+		id[i].setPosition(Vector2f(pos, i * 50));
+		id[i].setFillColor(color);
+		id[i].setOutlineColor(Color::Black);
+		id[i].setOutlineThickness(1);
+	}
+
+
+	id[2].setSize(Vector2f(50, 50));
+	id[2].setPosition(Vector2f(id[0].getPosition().x - 50, id[0].getPosition().y));
+	id[2].setFillColor(color);
+	id[2].setOutlineColor(Color::Black);
+	id[2].setOutlineThickness(1);
+
+	id[3].setSize(Vector2f(50, 50));
+	id[3].setPosition(Vector2f(id[1].getPosition().x + 50, id[1].getPosition().y));
+	id[3].setFillColor(color);
+	id[3].setOutlineColor(Color::Black);
+	id[3].setOutlineThickness(1);
+}
+
+void size4_sign_S(RectangleShape id[4]) {
+	int pos = create_random_pos();
+	Color color = create_random_color();
+	if (pos >= 750) {
+		pos = 700;
+	}
+	else if (pos == 0) {
+		pos = 50;
+	}
+	for (int i = 0; i < 2; i++) {
+		id[i].setSize(Vector2f(50, 50));
+		id[i].setPosition(Vector2f(pos, i * 50));
+		id[i].setFillColor(color);
+		id[i].setOutlineColor(Color::Black);
+		id[i].setOutlineThickness(1);
+	}
+
+
+	id[2].setSize(Vector2f(50, 50));
+	id[2].setPosition(Vector2f(id[0].getPosition().x + 50, id[0].getPosition().y));
+	id[2].setFillColor(color);
+	id[2].setOutlineColor(Color::Black);
+	id[2].setOutlineThickness(1);
+
+	id[3].setSize(Vector2f(50, 50));
+	id[3].setPosition(Vector2f(id[1].getPosition().x - 50, id[1].getPosition().y));
+	id[3].setFillColor(color);
+	id[3].setOutlineColor(Color::Black);
+	id[3].setOutlineThickness(1);
+}
+
+void size4_sign_I(RectangleShape id[4]) {
+	int pos = create_random_pos();
+	Color color = create_random_color();
+	if (pos >= 750) {
+		pos = 700;
+	}
+	else if (pos == 0) {
+		pos = 50;
+	}
+	for (int i = 0; i < 4; i++) {
+		id[i].setSize(Vector2f(50, 50));
+		id[i].setPosition(Vector2f(pos, i * 50));
+		id[i].setFillColor(color);
+		id[i].setOutlineColor(Color::Black);
+		id[i].setOutlineThickness(1);
+	}
+}
+
+void size4_sign_L(RectangleShape id[4]) {
+	int pos = create_random_pos();
+	Color color = create_random_color();
+	if (pos >= 700) {
+		pos = 650;
+	}
+	for (int i = 0; i < 3; i++) {
+		id[i].setSize(Vector2f(50, 50));
+		id[i].setPosition(Vector2f(pos + i*50, 50));
+		id[i].setFillColor(color);
+		id[i].setOutlineColor(Color::Black);
+		id[i].setOutlineThickness(1);
+	}
+
+
+	id[3].setSize(Vector2f(50, 50));
+	id[3].setPosition(Vector2f(id[2].getPosition().x, id[2].getPosition().y-50));
+	id[3].setFillColor(color);
+	id[3].setOutlineColor(Color::Black);
+	id[3].setOutlineThickness(1);
+}
+
+void size4_sign_J(RectangleShape id[4]) {
+	int pos = create_random_pos();
+	Color color = create_random_color();
+	if (pos >= 700) {
+		pos = 650;
+	}
+	for (int i = 0; i < 3; i++) {
+		id[i].setSize(Vector2f(50, 50));
+		id[i].setPosition(Vector2f(pos + i * 50, 50));
+		id[i].setFillColor(color);
+		id[i].setOutlineColor(Color::Black);
+		id[i].setOutlineThickness(1);
+	}
+
+
+	id[3].setSize(Vector2f(50, 50));
+	id[3].setPosition(Vector2f(id[0].getPosition().x, id[0].getPosition().y - 50));
+	id[3].setFillColor(color);
+	id[3].setOutlineColor(Color::Black);
+	id[3].setOutlineThickness(1);
+}
+
+void size4_sign_O(RectangleShape id[4]) {
+	int pos = create_random_pos();
+	Color color = create_random_color();
+	if (pos >= 750) {
+		pos = 700;
+	}
+	for (int i = 0; i < 2; i++) {
+		id[i].setSize(Vector2f(50, 50));
+		id[i].setPosition(Vector2f(pos, i*50));
+		id[i].setFillColor(color);
+		id[i].setOutlineColor(Color::Black);
+		id[i].setOutlineThickness(1);
+	}
+
+	id[2].setSize(Vector2f(50, 50));
+	id[2].setPosition(Vector2f(id[0].getPosition().x+50, id[0].getPosition().y));
+	id[2].setFillColor(color);
+	id[2].setOutlineColor(Color::Black);
+	id[2].setOutlineThickness(1);
+
+	id[3].setSize(Vector2f(50, 50));
+	id[3].setPosition(Vector2f(id[1].getPosition().x+50, id[1].getPosition().y));
+	id[3].setFillColor(color);
+	id[3].setOutlineColor(Color::Black);
+	id[3].setOutlineThickness(1);
+}
+
+void size4_sign_T(RectangleShape id[4]) {
+	int pos = create_random_pos();
+	Color color = create_random_color();
+	if (pos >= 750) {
+		pos = 700;
+	}
+	for (int i = 0; i < 3; i++) {
+		id[i].setSize(Vector2f(50, 50));
+		id[i].setPosition(Vector2f(pos + 50*i, 50));
+		id[i].setFillColor(color);
+		id[i].setOutlineColor(Color::Black);
+		id[i].setOutlineThickness(1);
+	}
+
+
+	id[3].setSize(Vector2f(50, 50));
+	id[3].setPosition(Vector2f(id[1].getPosition().x, id[1].getPosition().y-50));
+	id[3].setFillColor(color);
+	id[3].setOutlineColor(Color::Black);
+	id[3].setOutlineThickness(1);
+}
+
+
+void call_random_func_size_4(RectangleShape active_shape[5], int active[10]) {
+	srand(time(NULL));
+	int i = rand() % 8;
+	for (int j = 0; j < rand() % 100; j++) {
+		for (int k = 0; k < rand() % 100; j++) {
+			i = rand() % 8;
+		}
+	}
+	if (i == 0) {
+		size4_sign_S(active_shape);
+		size4_convector(active_shape, active);
+	}
+	else if (i == 1) {
+		size4_sign_Z(active_shape);
+		size4_convector(active_shape, active);
+	}
+	else if (i == 2) {
+		size4_sign_L(active_shape);
+		size4_convector(active_shape, active);
+	}
+	else if (i == 3) {
+		size4_sign_J(active_shape);
+		size5_convector(active_shape, active);
+	}
+	else if (i == 4) {
+		size4_sign_O(active_shape);
+		size4_convector(active_shape, active);
+	}
+	else if (i == 5) {
+		size4_sign_I(active_shape);
+		size4_convector(active_shape, active);
+	}
+	else if (i == 6) {
+		size4_sign_T(active_shape);
+		size4_convector(active_shape, active);
+	}
+}
+
+
+/*
+MAIN
+*/
+
 int main() {
+	const int SIZE = 4;
+
 	RenderWindow window(VideoMode(800, 800), "Gun");
-	RectangleShape active_shape[5];
+	RectangleShape active_shape[SIZE];
 	Color **Field = new Color* [16];
 	RectangleShape** Field_shape = new RectangleShape * [16];
 
-	int active[10];
+	int active[2*SIZE];
 	for (int i = 0; i < 16; i++) {
 		Field[i] = new Color[16];
 		Field_shape[i] = new RectangleShape[16];
@@ -444,8 +685,12 @@ int main() {
 			Field_shape[i][j].setOutlineColor(Color::Black);
 		}
 	}
-
-	call_random_func(active_shape, active);
+	if (SIZE == 5) {
+		call_random_func_size_5(active_shape, active);
+	}
+	else {
+		call_random_func_size_4(active_shape, active);
+	}
 	int iter = 1;
 	int dead = 0;
 
@@ -454,7 +699,7 @@ int main() {
 			Field[i][j] = Color::White;
 		}
 	}
-	for (int i = 0; i < 10; i += 2) {
+	for (int i = 0; i < SIZE*2; i += 2) {
 		Field[active[i]][active[i+1]] = active_shape[0].getFillColor();
 	}
 	RectangleShape lines[33];
@@ -469,10 +714,6 @@ int main() {
 		lines[i / 50+16].setFillColor(Color::White);
 	}
 
-	Field_shape[1][15].setFillColor(Color::Magenta);
-	Field_shape[15][1].setFillColor(Color::Yellow);
-
-
 	
 
 	while (window.isOpen()) {
@@ -486,7 +727,7 @@ int main() {
 				if (Keyboard::isKeyPressed(Keyboard::Right)) {
 					int max = -1;
 					int max_i = -1;
-					for (int i = 0; i < 10; i+=2) {
+					for (int i = 0; i < SIZE*2; i+=2) {
 						if (active[i] >= max) {
 							max = active[i];
 							max_i = i;
@@ -499,12 +740,11 @@ int main() {
 					}
 					
 					if (ind == 0) {
-						for (int i = 0; i < 10; i += 2) {
+						for (int i = 0; i < SIZE*2; i += 2) {
 							Field[active[i]][active[i+1]] = Color::White;
 							active[i] += 1;
 							Field[active[i]][active[i+1]] = active_shape[0].getFillColor();
 							active_shape[i / 2].move(50, 0);
-
 						}
 					}
 					ind = 0;
@@ -513,7 +753,7 @@ int main() {
 				if (Keyboard::isKeyPressed(Keyboard::Left)) {
 					int max = 100;
 					int max_i = -1;
-					for (int i = 0; i < 10; i += 2) {
+					for (int i = 0; i < SIZE*2; i += 2) {
 						if (active[i] <= max) {
 							max = active[i];
 							max_i = i;
@@ -527,7 +767,7 @@ int main() {
 					}
 
 					if (ind == 0) {
-						for (int i = 0; i < 10; i += 2) {
+						for (int i = 0; i < SIZE*2; i += 2) {
 							Field[active[i]][active[i + 1]] = Color::White;
 							active[i] -= 1;
 							Field[active[i]][active[i + 1]] = active_shape[0].getFillColor();
@@ -549,11 +789,11 @@ int main() {
 		if (iter % 25 == 0) {
 			int max = -1;
 			int i_max = -1;
-			int x[5];
-			int y_max[5];
+			int x[SIZE];
+			int y_max[SIZE];
 			int len = 0;
 			int a = 0;
-			for (int i = 0; i < 10; i += 2) {
+			for (int i = 0; i < SIZE*2; i += 2) {
 				for (int j = 0; j < len; j++) {
 					if (active[i] == x[j]) {
 						a = 1;
@@ -583,14 +823,14 @@ int main() {
 			int ind = 0;
 
 			if (max < 15 && a == 0) {
-				for (int i = 0; i < 10; i += 2) {
+				for (int i = 0; i < SIZE*2; i += 2) {
 					Field[active[i]][active[i + 1]] = Color::White;
 					active[i + 1] += 1;
 					Field[active[i]][active[i + 1]] = active_shape[0].getFillColor();
 					active_shape[i / 2].move(0, 50);
 				}
 			} else {
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < SIZE; i++) {
 					Field[int(active_shape[i].getPosition().x)/50][int(active_shape[i].getPosition().y)/50] = active_shape[0].getFillColor();
 					Field_shape[int(active_shape[i].getPosition().x)/50][int(active_shape[i].getPosition().y)/50].setFillColor(active_shape[0].getFillColor());
 					dead = 1;
@@ -603,7 +843,7 @@ int main() {
 			iter += 1;
 		}
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < SIZE; i++) {
 			window.draw(active_shape[i]);
 		}
 
@@ -651,16 +891,17 @@ int main() {
 				}
 				a = 0;
 			}
-			call_random_func();
+			if (SIZE == 5) {
+				call_random_func_size_5(active_shape, active);
+			}
+			else {
+				call_random_func_size_4(active_shape, active);
+			}
 		}
 
 		sleep(milliseconds(10));
 	}
 	
-
-
-
-
 
 
 
