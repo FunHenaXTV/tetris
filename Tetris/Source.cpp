@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <ctime>
-
+#include <string>
 
 using namespace sf;
 using namespace std;
@@ -46,6 +46,13 @@ int create_random_pos() {
 	}
 	i = i - i % 50;
 	return i;
+}
+
+void convector(RectangleShape id[5], int arr[10]) {
+	for (int i = 0; i < 10; i += 2) {
+		arr[i] = id[i / 2].getPosition().x / 50;
+		arr[i + 1] = id[i / 2].getPosition().y / 50;
+	}
 }
 
 
@@ -321,7 +328,7 @@ void sign_Y(RectangleShape id[5]) {
 	id[4].setOutlineThickness(1);
 }
 
-void sign_Z(RectangleShape id[5]) {
+void sign_Z(RectangleShape id[5], int arr[10]) {
 	int pos = create_random_pos();
 	Color color = create_random_color();
 	if (pos >= 750) {
@@ -338,6 +345,7 @@ void sign_Z(RectangleShape id[5]) {
 		id[i].setOutlineThickness(1);
 	}
 
+
 	id[3].setSize(Vector2f(50, 50));
 	id[3].setPosition(Vector2f(id[0].getPosition().x - 50, id[0].getPosition().y));
 	id[3].setFillColor(color);
@@ -349,24 +357,47 @@ void sign_Z(RectangleShape id[5]) {
 	id[4].setFillColor(color);
 	id[4].setOutlineColor(Color::Black);
 	id[4].setOutlineThickness(1);
+	convector(id, arr);
 }
+
+
+
+
 
 int main() {
 	RenderWindow window(VideoMode(800, 800), "Gun");
-	RectangleShape markup[33];
-	RectangleShape G[5];
-	sign_Z(G);
+	RectangleShape active_shape[5];
+	Color **Field = new Color* [16];
+	int active[10];
+	for (int i = 0; i < 16; i++) {
+		Field[i] = new Color[16];
+	}
+	sign_Z(active_shape, active);
+
+
+	for (int i = 0; i < 16; i++) {
+		for (int j = 0; j < 16; j++) {
+			Field[i][j] = Color::White;
+		}
+	}
+	for (int i = 0; i < 10; i += 2) {
+		Field[active[i]][active[i+1]] = active_shape[0].getFillColor();
+	}
+	RectangleShape lines[33];
+	for (int i = 0; i <= 800; i += 50) {
+		lines[i/50].setSize(Vector2f(800, 2));
+		lines[i/50].setPosition(Vector2f(0, i));
+		lines[i/50].setFillColor(Color::White);
+	}
+	for (int i = 0; i < 800; i += 50) {
+		lines[i / 50+16].setSize(Vector2f(2, 800));
+		lines[i / 50+16].setPosition(Vector2f(i, 0));
+		lines[i / 50+16].setFillColor(Color::White);
+	}
+
+
 	
-	for (int i = 0; i <= 800; i += 50) {
-		markup[i / 50].setFillColor(Color::White);
-		markup[i / 50].setSize(Vector2f(2, 800));
-		markup[i / 50].setPosition(Vector2f(i, 0));
-	}
-	for (int i = 0; i <= 800; i += 50) {
-		markup[i / 50 + 16].setFillColor(Color::White);
-		markup[i / 50 + 16].setSize(Vector2f(800, 2));
-		markup[i / 50 + 16].setPosition(Vector2f(0, i));
-	}
+
 	while (window.isOpen()) {
 		Event event;
 		while (window.pollEvent(event)) {
@@ -374,21 +405,87 @@ int main() {
 				window.close();
 			}
 			if (event.type == Event::KeyPressed) {
+				int ind = 0;
 				if (Keyboard::isKeyPressed(Keyboard::Right)) {
-					cout << "Right" << endl;
+					int max = -1;
+					int max_i = -1;
+					for (int i = 0; i < 10; i+=2) {
+						if (active[i] >= max) {
+							max = active[i];
+							max_i = i;
+						}
+					}
+					if (max >= 15) {
+						ind = 1;
+					} else if (Field[max + 1][active[max_i + 1]] != Color::White) {
+						ind = 1;
+					}
+					
+					cout << ind << endl;
+					if (ind == 0) {
+						for (int i = 0; i < 10; i += 2) {
+							Field[active[i]][active[i+1]] = Color::White;
+							active[i] += 1;
+							Field[active[i]][active[i+1]] = active_shape[0].getFillColor();
+							active_shape[i / 2].move(50, 0);
+
+						}
+					}
+					ind = 0;
+
 				}
 				if (Keyboard::isKeyPressed(Keyboard::Left)) {
-					cout << "Left" << endl;
+					int max = 100;
+					int max_i = -1;
+					for (int i = 0; i < 10; i += 2) {
+						if (active[i] <= max) {
+							max = active[i];
+							max_i = i;
+						}
+					}
+					if (max <= 0) {
+						ind = 1;
+					}
+					else if (Field[max - 1][active[max_i + 1]] != Color::White) {
+						ind = 1;
+					}
+
+					cout << ind << endl;
+					if (ind == 0) {
+						for (int i = 0; i < 10; i += 2) {
+							Field[active[i]][active[i + 1]] = Color::White;
+							active[i] -= 1;
+							Field[active[i]][active[i + 1]] = active_shape[0].getFillColor();
+							active_shape[i / 2].move(-50, 0);
+
+						}
+					}
+					ind = 0;
+				}
+				if (Keyboard::isKeyPressed(Keyboard::Space)) {
+					cout << "Space" << endl;
 				}
 			}
 		}
-		for (int i = 0; i < 33; i++){
-			window.draw(markup[i]);
+
+		window.clear();
+
+		for (int i = 0; i < 5; i++) {
+			window.draw(active_shape[i]);
 		}
-		for (int i= 0; i < 5; i++) {
-			window.draw(G[i]);
+
+		for (int i = 0; i < 33; i++) {
+			window.draw(lines[i]);
 		}
+
 		window.display();
 	}
 	
+	for  (int i = 0; i < 16; i++)
+	{
+		delete[] Field[i];
+	}
+
+	delete [] Field;
+
 }
